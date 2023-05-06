@@ -1,5 +1,5 @@
-import { ReactNode, VFC } from "react";
-import { Button } from "@chakra-ui/react";
+import { ReactNode, FC } from 'react';
+import { Button } from '@chakra-ui/react';
 
 type Props = {
   children: ReactNode;
@@ -9,20 +9,20 @@ type Props = {
   onClick: () => void;
 };
 
-export const PrimaryButton: VFC<Props> = props => {
+export const PrimaryButton: FC<Props> = (props) => {
   const {
     children,
     isFullWidth = false,
     disabled = false,
     isLoading = false,
-    onClick
+    onClick,
   } = props;
 
   return (
     <Button
       bg="teal.400"
       color="white"
-      isFullWidth={isFullWidth}
+      style={{ width: isFullWidth ? '100%' : undefined }}
       disabled={disabled || isLoading}
       isLoading={isLoading}
       _hover={{ opacity: 0.8 }}

@@ -1,22 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { memo, useCallback, VFC } from "react";
-import { Box, Flex, Heading, Link, useDisclosure } from "@chakra-ui/react";
-import { useHistory } from "react-router-dom";
+import React, { memo, useCallback, FC } from 'react';
+import { Box, Flex, Heading, Link, useDisclosure } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
-import { MenuIconButton } from "../../atoms/button/MenuIconButton";
-import { MenuDrawer } from "../../molecules/MenuDrawer";
+import { MenuIconButton } from '../../atoms/button/MenuIconButton';
+import { MenuDrawer } from '../../molecules/MenuDrawer';
 
-export const Header: VFC = memo(() => {
+export const Header: FC = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
-  const onClickHome = useCallback(() => history.push("/home"), []);
+  const onClickHome = useCallback(() => navigate('/home'), []);
   const onClickUserManagement = useCallback(
-    () => history.push("/home/user_management"),
+    () => navigate('/home/user_management'),
     []
   );
-  const onClickSetting = useCallback(() => history.push("/home/setting"), []);
+  const onClickSetting = useCallback(() => navigate('/home/setting'), []);
 
   return (
     <>
@@ -32,17 +32,17 @@ export const Header: VFC = memo(() => {
           align="center"
           as="a"
           mr={8}
-          _hover={{ cursor: "pointer" }}
+          _hover={{ cursor: 'pointer' }}
           onClick={onClickHome}
         >
-          <Heading as="h1" fontSize={{ base: "md", md: "lg" }}>
+          <Heading as="h1" fontSize={{ base: 'md', md: 'lg' }}>
             ユーザー管理アプリ
           </Heading>
         </Flex>
         <Flex
           align="center"
           fontSize="sm"
-          display={{ base: "none", md: "flex" }}
+          display={{ base: 'none', md: 'flex' }}
           flexGrow={2}
         >
           <Box pr={4}>
