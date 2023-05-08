@@ -1,13 +1,13 @@
-import { ChangeEvent, memo, useState, VFC } from "react";
-import { Box, Divider, Flex, Heading, Input, Stack } from "@chakra-ui/react";
+import { ChangeEvent, memo, useState, FC } from 'react';
+import { Box, Divider, Flex, Heading, Input, Stack } from '@chakra-ui/react';
 
-import { PrimaryButton } from "../../atoms/button/PrimaryButton";
-import { useAuth } from "../../../hooks/useAuth";
+import { PrimaryButton } from '../../atoms/button/PrimaryButton';
+import { useAuth } from '../../../hooks/useAuth';
 
-export const Login: VFC = memo(() => {
+export const Login: FC = memo(() => {
   const { login, loading } = useAuth();
 
-  const [userId, setUserId] = useState("");
+  const [userId, setUserId] = useState('');
 
   const onClickLogin = () => {
     login(userId);
@@ -31,7 +31,7 @@ export const Login: VFC = memo(() => {
           />
           <PrimaryButton
             isFullWidth
-            disabled={userId === ""}
+            disabled={userId === ''}
             isLoading={loading}
             onClick={onClickLogin}
           >
@@ -42,3 +42,5 @@ export const Login: VFC = memo(() => {
     </Flex>
   );
 });
+
+Login.displayName = 'Login';

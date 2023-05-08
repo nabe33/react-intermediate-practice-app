@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { memo, useCallback, FC } from 'react';
+import { memo, useCallback, FC } from 'react';
 import { Box, Flex, Heading, Link, useDisclosure } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 
@@ -64,3 +64,5 @@ export const Header: FC = memo(() => {
     </>
   );
 });
+
+Header.displayName = 'Header';

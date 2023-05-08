@@ -1,5 +1,7 @@
-import { memo, VFC } from "react";
+import { memo, FC } from 'react';
 
-export const Home: VFC = memo(() => {
+export const Home: FC = memo(() => {
   return <p>Homeページです</p>;
 });
+
+Home.displayName = 'Home';

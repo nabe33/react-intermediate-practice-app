@@ -1,19 +1,19 @@
-import { memo, useCallback, useEffect, VFC } from "react";
+import { memo, useCallback, useEffect, FC } from 'react';
 import {
   Center,
   Spinner,
   useDisclosure,
   Wrap,
-  WrapItem
-} from "@chakra-ui/react";
+  WrapItem,
+} from '@chakra-ui/react';
 
-import { UserCard } from "../../organisms/user/UserCard";
-import { useAllUsers } from "../../../hooks/useAllUsers";
-import { UserDetailModal } from "../../organisms/modal/UserDetailModal";
-import { useSelectUser } from "../../../hooks/useSelectUser";
-import { useLoginUser } from "../../../hooks/providers/useLoginUserProvider";
+import { UserCard } from '../../organisms/user/UserCard';
+import { useAllUsers } from '../../../hooks/useAllUsers';
+import { UserDetailModal } from '../../organisms/modal/UserDetailModal';
+import { useSelectUser } from '../../../hooks/useSelectUser';
+import { useLoginUser } from '../../../hooks/providers/useLoginUserProvider';
 
-export const UserManagement: VFC = memo(() => {
+export const UserManagement: FC = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { getUsers, loading, users } = useAllUsers();
   const { onSelectUser, selectedUser } = useSelectUser();
@@ -36,7 +36,7 @@ export const UserManagement: VFC = memo(() => {
         </Center>
       ) : (
         <Wrap p={{ base: 4, md: 10 }}>
-          {users.map(obj => (
+          {users.map((obj) => (
             <WrapItem key={obj.id} mx="auto">
               <UserCard
                 id={obj.id}
@@ -58,3 +58,5 @@ export const UserManagement: VFC = memo(() => {
     </>
   );
 });
+
+UserManagement.displayName = 'UserManagement';

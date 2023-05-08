@@ -1,12 +1,12 @@
-import { VFC } from "react";
-import { IconButton } from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { FC } from 'react';
+import { IconButton } from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
 
 type Props = {
   onOpen: () => void;
 };
 
-export const MenuIconButton: VFC<Props> = props => {
+export const MenuIconButton: FC<Props> = (props) => {
   const { onOpen } = props;
   return (
     <IconButton
@@ -14,7 +14,7 @@ export const MenuIconButton: VFC<Props> = props => {
       icon={<HamburgerIcon />}
       size="sm"
       variant="unstyled"
-      display={{ base: "block", md: "none" }}
+      display={{ base: 'block', md: 'none' }}
       onClick={onOpen}
     />
   );
